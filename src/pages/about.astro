@@ -1,5 +1,5 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageTitle = "About Me";
 const identity = {
@@ -28,7 +28,7 @@ const skillColor = "navy";
     }
 </style>
 
-<PageLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle={pageTitle}>
 	<p>Here are a few facts about me:</p>
     <ul>
         <li>My name is {identity.firstName}.</li>
@@ -45,4 +45,4 @@ const skillColor = "navy";
     {happy && <p>I am happy to be learning Astro!</p>}
     {finished && <p>I finished this tutorial!</p>}
     {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
-</PageLayout>
+</BaseLayout>
