@@ -1,10 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Greeting from '../components/Greeting';
+import Topic from '../components/Topic.astro';
 
-const pageTitle = 'Home Page';
+const pageTitle = '';
+
+const allPosts = await Astro.glob('./posts/*.md');
+const topics = [['New','✨'], ['Tutorials','🚀']];
 ---
 <BaseLayout pageTitle={pageTitle}>
-	<h2>My awesome blog subtitle</h2>
-	<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+	<div style="padding:3rem 0;">
+		<i>I share about Backend, Engineer and some thoughts in Product and Life 😴</i>
+	</div>
+	<div>
+		{topics.map(topic => <Topic url={`/#${topic[0]}`} title={`${topic[1]} ${topic[0]}`}/>)}
+	</div>
 </BaseLayout>

@@ -8,6 +8,7 @@ image:
     url: 'https://docs.astro.build/assets/rose.webp'
     alt: 'The Astro logo on a dark background with a pink glow.'
 tags: ["astro", "blogging", "learning in public"]
+topics: ["tutorials"]
 ---
 # My First Blog Post
 
@@ -24,3 +25,19 @@ Welcome to my _new blog_ about learning Astro! Here, I will share my learning jo
 ## What's next
 
 I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
+
+`inline code`
+
+| Cột 1 | Cột 2 | Cột 3 | Cột 4 |
+| :--- | :--- | :--- | :--- |
+| A | B | C | D |
+| E | F | G | H |
+| I | K | L | M |
+
+---
+***
+___
+
+[Github](https://github.com/lucthienphong1120)
+
+![](https://avatars.githubusercontent.com/u/583231)
