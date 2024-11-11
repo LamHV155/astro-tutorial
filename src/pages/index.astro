@@ -16,7 +16,34 @@ const topics = [
 		name: '🚀 Tutorials'
 	}
 ];
+
+let newPosts = allPosts.sort((post1, post2) => {
+    const date1 = new Date(post1.frontmatter.pubDate).getTime();
+    const date2 = new Date(post2.frontmatter.pubDate).getTime();
+    if (isNaN(date1) || isNaN(date2)) {
+        console.warn("Invalid date format in posts:", post1, post2);
+        return 0;
+    }
+    return date2 - date1;
+}).slice(0, 2);
+
 const postReviews = topics.map(topic => {
+
+	if(topic.id === 'New'){
+		return {
+			topicId: topic.id,
+			topicName:	topic.name,
+			posts: newPosts.map(({url, frontmatter: {title, description, pubDate}})=>(
+				{
+					url,
+					title,
+					description,
+					pubDate
+				}
+			))
+		};
+	}
+	
 	let posts = allPosts.filter(post => post.frontmatter.topics?.includes(topic.id.toLowerCase()));
 	return {
 		topicId: topic.id,
