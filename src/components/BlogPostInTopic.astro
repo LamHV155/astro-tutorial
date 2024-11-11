@@ -1,3 +1,17 @@
 ---
+import BlogPostReview from "./BlogPostReview.astro";
 
+const { topicId, 
+        topicName, 
+        posts } = Astro.props;
 ---
+
+<div>
+    <h3 id={topicId}>{topicName}</h3>
+    <div class="flex-wrap-container">
+        {posts.map(post => <BlogPostReview url={post.url}
+                                            title={post.title}
+                                            pubDate={post.pubDate}
+                                            description={post.description}/>)}
+    </div>
+</div>

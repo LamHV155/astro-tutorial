@@ -1,173 +1,243 @@
+:root {
+    --background-light: #f1f5f9;
+    --background-dark: rgb(24 24 27);
+    --text-light: #000;
+    --text-dark: #fff;
+    --accent-color: #ff9776;
+    --accent-color-dark: #cfbe70d1;
+    --button-bg-light: #f8f8f6;
+    --button-bg-dark: #262626;
+    --button-hover-light: #fffcf6;
+    --button-hover-dark: #312f2f;
+    --border-light: #6d064b3d;
+    --border-dark: #434104d1;
+}
+
+/* Base Styles */
 html {
-    background-color: #f1f5f9;
-    font-family: sans-serif;
+background-color: var(--background-light);
+font-family: sans-serif;
 }
 
 body {
-    margin: 0 auto;
-    width: 100%;
-    padding: 1rem;
-    line-height: 1.5;
+margin: 0 auto;
+width: 100%;
+padding: 1rem;
+line-height: 1.5;
 }
 
 * {
-    box-sizing: border-box;
+box-sizing: border-box;
 }
 
 h1 {
-    margin: 1rem 0;
-    font-size: 2.5rem;
+margin: 1rem 0;
+font-size: 2.5rem;
 }
 
+/* Layout */
 .flex-container {
-    display: flex;
+display: flex;
 }
-  /* nav styles */
 
+.flex-container-center {
+    display: flex;
+    justify-content: center; 
+}
+
+.flex-wrap-container {
+display: flex;
+flex-wrap: wrap; 
+}
+
+/* Navigation Styles */
 .hamburger {
-    margin-left: 95%;
-    padding-right: 20px;
-    cursor: pointer;
+margin-left: 95%;
+padding-right: 20px;
+cursor: pointer;
 }
 
 .hamburger .line {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin-bottom: 7px;
-    background-color: #ff9776;
-}
-
-.dark .hamburger .line {
-    background-color: #cfe082d1;
-}
-
-.button {
-    display: inline-block;
-    padding: 6px 15px;
-    font-size: 16px;
-    font-weight: 550;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    margin-right: 10px;
+display: block;
+width: 25px;
+height: 3px;
+margin-bottom: 7px;
+background-color: var(--accent-color);
 }
 
 .nav-links {
-    width: 100%;
-    display: none;
-    margin: 0;
-    margin-left: 30%;
+width: 100%;
+display: none;
+margin: 0;
+margin-left: 30%;
 }
 
 .nav-links a {
-    display: block;
-    text-align: center;
-    padding: 10px 0;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-transform: uppercase;
+display: block;
+text-align: center;
+padding: 10px 0;
+text-decoration: none;
+font-size: 0.9rem;
+font-weight: 500;
+text-transform: uppercase;
+}
+
+
+.nav-links div:hover,
+.nav-links div:focus {
+background-color: var(--accent-color);
+}
+
+.expanded {
+display: unset;
+}
+
+/* Button Styles */
+.button {
+display: inline-block;
+padding: 6px 15px;
+font-size: 16px;
+font-weight: 550;
+border-radius: 4px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+text-decoration: none;
+margin-right: 10px;
+border: 1px solid var(--border-light);
+background-color: var(--button-bg-light);
+}
+
+.button:hover {
+background-color: var(--button-hover-light);
+}
+
+/* Blog Name Styles */
+.blog-name {
+cursor: pointer;
+margin-left: 7%;
+font-family: 'Cambria', 'Cochin', 'Georgia', 'Times', 'Times New Roman', serif;
+font-size: smaller;
+display: inline-block;
+position: absolute;
+top: 0.2rem;
+}
+
+.blog-name a {
+text-decoration: none;
+}
+
+.blog-name a:hover {
+color: #e0c797;
+}
+
+/* Post Review Block Styles */
+.post-review-block {
+width: 100%;
+min-height: 10rem;
+padding: 1rem;
+margin: 0 2rem 1rem 0;
+flex: 0 0 100%;
+cursor: pointer;
+border: 1px solid var(--border-light);
+background-color: var(--button-bg-light);
+}
+
+.post-review-block:hover {
+background-color: var(--button-hover-light);
+}
+
+.post-review-block time{
+    font-size:smaller;
+    font-weight:700;
+}
+
+.post-review-block p {
+    font-weight: 600;
+}
+
+
+/* Dark Mode Styles */
+html.dark {
+background-color: var(--background-dark);
+color: var(--text-dark);
+}
+
+.dark .hamburger .line {
+background-color: var(--accent-color-dark);
+}
+
+.dark .nav-links a {
+color: var(--text-dark);
 }
 
 .dark .nav-links div:hover,
 .dark .nav-links div:focus {
-    background-color: #312f2f;
-}
-
-.expanded {
-    display: unset;
-}
-
-
-/* dark - tối */
-
-html.dark {
-    background-color: rgb(24 24 27);
-    color: #fff;
-}
-
-.dark .nav-links a {
-    color: #fff;
+background-color: var(--button-hover-dark);
 }
 
 .dark .button {
-    color: #fff;
-    background-color: #262626;
-    border: 0.1rem solid #434104d1;
+color: var(--text-dark);
+background-color: var(--button-bg-dark);
+border: 1px solid var(--border-dark);
 }
-
 
 .dark .button:hover {
-    background-color: #312f2f;
-}
-
-.nav-links div:hover,
-.nav-links div:focus {
-    background-color: #ff9776;
-}
-
-.blog-name {
-    cursor: pointer;
-    margin-left: 7%;
-    font-family:'Cambria, Cochin, Georgia, Times, 'Times New Roman', serif';
-    font-size: smaller;
-    display: inline-block;
-    position: absolute;
-    top: 0.2rem;
-}
-
-.blog-name a{
-    text-decoration: none;
+background-color: var(--button-hover-dark);
 }
 
 .dark .blog-name a {
-    color: #fff;
+color: var(--text-dark);
 }
 
-.blog-name a:hover{
-    color: #e0c797;
+.dark .post-review-block {
+border: 1px solid var(--border-dark);
+background-color: var(--button-bg-dark);
 }
 
-@media screen and (min-width: 636px) {
-    .nav-links {
-        display: block;
-        position: static;
-        width: auto;
-        background: none;
-    }
+.dark .post-review-block:hover {
+background-color: var(--button-hover-dark);
+}
 
-    .nav-links div {
-        display: inline-block;
-        padding: 0px 20px;
-    }
 
-    .hamburger {
-        display: none;
-    }
+.tag {
+    margin: 0.25em;
+    border-radius: .5em;
+    padding: .5em 1em;
+    font-size: 1.15em;
+    background-color: var(--button-bg-light);
+}
 
-    .blog-name {
-        top: 1rem;
-    }
+.tag a{
+    color: #00539F;
+}
+
+.tag:hover{
+    background-color: var(--button-hover-light);
+}
+
+/* Media Query */
+@media screen and (min-width: 800px) {
+.nav-links {
+    display: block;
+    position: static;
+    width: auto;
+    background: none;
+}
+
+.nav-links div {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.hamburger {
+    display: none;
+}
+
+.blog-name {
+    top: 1rem;
 }
 
 .post-review-block {
-    border: 1px solid #434104d1;
-    background-color: #1c1c1c;
-    max-width: 35%;
-    min-height: 10rem;
-    padding: 1rem;
-    margin: 0 1rem 1rem 0;
-    flex: 0 0 50%;
-    cursor: pointer;
-}
-
-.post-review-block:hover {
-    background-color: #252525;
-}
-
-.flex-wrap-container {
-    display: flex;
-    flex-wrap: wrap; 
+    flex: 0 0 40%;
+    }
 }

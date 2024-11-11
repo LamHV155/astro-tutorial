@@ -1,17 +1,48 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Topic from '../components/Topic.astro';
+import BlogPostInTopic from '../components/BlogPostInTopic.astro';
 
 const pageTitle = '';
 
 const allPosts = await Astro.glob('./posts/*.md');
-const topics = [['New','✨'], ['Tutorials','🚀']];
+const topics = [
+	{
+		id: 'New',
+		name: '✨ New'
+	},
+	{
+		id: 'Tutorials',
+		name: '🚀 Tutorials'
+	}
+];
+const postReviews = topics.map(topic => {
+	let posts = allPosts.filter(post => post.frontmatter.topics?.includes(topic.id.toLowerCase()));
+	return {
+		topicId: topic.id,
+		topicName:	topic.name,
+		posts: posts.map(({url, frontmatter: {title, description, pubDate}})=>(
+			{
+				url,
+				title,
+				description,
+				pubDate
+			}
+		))
+	};
+});
 ---
 <BaseLayout pageTitle={pageTitle}>
 	<div style="padding:3rem 0;">
 		<i>I share about Backend, Engineer and some thoughts in Product and Life 😴</i>
 	</div>
 	<div>
-		{topics.map(topic => <Topic url={`/#${topic[0]}`} title={`${topic[1]} ${topic[0]}`}/>)}
+		{topics.map(topic => <Topic url={`/#${topic.id}`} title={`${topic.name}`}/>)}
+	</div>
+	<div>
+		{postReviews.map(postReview => <BlogPostInTopic topicId={postReview.topicId}
+													topicName={postReview.topicName}
+													posts={postReview.posts}
+												/>)}
 	</div>
 </BaseLayout>

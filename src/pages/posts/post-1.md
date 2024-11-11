@@ -29,15 +29,15 @@ I will finish the Astro tutorial, and then keep adding more posts. Watch this sp
 `inline code`
 
 | Cột 1 | Cột 2 | Cột 3 | Cột 4 |
-| :--- | :--- | :--- | :--- |
-| A | B | C | D |
-| E | F | G | H |
-| I | K | L | M |
+| :---  | :---  | :---  | :---  |
+| A     | B     | C     | D     |
+| E     | F     | G     | H     |
+| I     | K     | L     | M     |
 
 ---
 ***
 ___
 
-[Github](https://github.com/lucthienphong1120)
+[Github](https://github.com/lamhv155)
 
 ![](https://avatars.githubusercontent.com/u/583231)
